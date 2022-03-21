@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coba JS</title>
+    <title>JS Assignment</title>
+    <script src="./user/user.js"></script>
+    <script src="../src/user/post.js"></script>
 </head>
 
 <body>
@@ -15,13 +17,22 @@
             App.run('empInfo');
         }
     </script> -->
-    <h1>Test</h1>
-    <div id="empInfo"></div>
+    <h1>JS Assignment</h1><br><br>
 
-    <div id="post-item-container"></div>
+    <h2>Find User By ID</h2>
+    <form action="javascript:alert('Find user');"
+        onsubmit="getUserById('details', document.getElementById('uid').value);">
+        <label for="id">Insert User ID:</label>
+        <input type="number" id="uid" max="10">
+        <input type="submit" value="Search User"><br><br>
+    </form>
 
-    <script src="../src/user/post.js"></script>
-    <script>listPosts('post-item-container')</script>
+    <div id="details">No request detected.</div><br><br>
+
+    <!-- <div id="empInfo"></div> -->
+
+    <h2>User's Posts</h2><button onclick="listPosts('post-item-container', document.getElementById('uid').value)">Search</button>
+    <div id="post-item-container">No Data</div>
 
 </body>
 

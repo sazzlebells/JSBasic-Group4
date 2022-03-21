@@ -1,8 +1,8 @@
 // hardcoded user id 
-async function fetchPost() {
+async function fetchPost(userId) {
   // input userId return posts by userId as json
   try {
-    const res = await fetch(`https://jsonplaceholder.typicode.com/users/2/posts`);
+    const res = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`);
     if (!res.ok) {
       throw new Error(`Failed to fetch posts: ${res.status}`);
     }
@@ -12,16 +12,26 @@ async function fetchPost() {
   }
 }
 
-function listPosts(postContainerElementId) {
+function listPosts(postContainerElementId, userId) {
   // map through user's posts and call postElement for each element
   const postContainerElement = document.getElementById(postContainerElementId);
-  fetchPost()
+  fetchPost(userId)
     .then(posts => {
       if (!posts) {
         postContainerElement.innerHTML = 'No posts from this user';
         return;
       }
-      posts.map((post) => postContainerElement.appendChild(postElement(post)));
+      postContainerElement.innerHTML = ``;
+      const table = postContainerElement.appendChild(document.createElement('table'));
+      // const row = document.createElement('tr');
+      // row.appendChild((document.createElement('td')).innerHTML = `Post ID`);
+      // row.appendChild((document.createElement('td')).innerHTML = `Title`);
+      // row.appendChild((document.createElement('td')).innerHTML = `Body`);
+
+      // table.appendChild(row);
+
+      posts.map((post) => table.appendChild(postElement(post)));
+      // createTable(posts);
     })
     .catch(e => {
       console.log(e);
@@ -30,11 +40,17 @@ function listPosts(postContainerElementId) {
 
 function postElement(post) {
   // for each post, create html element
-  const liElement = document.createElement('li');
-  liElement.innerHTML = post.title;
+  const colElement = document.createElement('td');
+  colElement.innerHTML = post.id;
+  const colElement2 = document.createElement('td');
+  colElement2.innerHTML = post.title;
+  const colElement3 = document.createElement('td');
+  colElement3.innerHTML = post.body;
 
-  const postTitleElement = document.createElement('h4');
-  postTitleElement.appendChild(liElement);
+  const postTitleElement = document.createElement('tr');
+  postTitleElement.appendChild(colElement);
+  postTitleElement.appendChild(colElement2);
+  postTitleElement.appendChild(colElement3);
 
   return postTitleElement;
 }
