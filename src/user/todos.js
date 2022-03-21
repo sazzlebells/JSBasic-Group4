@@ -7,7 +7,7 @@ async function fetchTodos(userId) {
         }
         return await response.json();
     } catch (error) {
-        console.log(error);
+        console.log(e);
     }
 }
 
@@ -23,7 +23,7 @@ function listTodos(todosElementId, userId) {
             }
 
             // array
-            var arr = new Array(todos.length)
+            var arr = new Array()
 
             todoElement.innerHTML = ``
             var table = todosElement.appendChild(document.createElement('table'))
