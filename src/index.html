@@ -8,15 +8,10 @@
     <title>JS Assignment</title>
     <script src="./user/user.js"></script>
     <script src="../src/user/post.js"></script>
+    <script src="./user/todos.js"></script>
 </head>
 
 <body>
-    <!-- <script src="../dist/main.js"></script>
-    <script>
-        window.onload = function () {
-            App.run('empInfo');
-        }
-    </script> -->
     <h1>JS Assignment</h1><br><br>
 
     <h2>Find User By ID</h2>
@@ -31,9 +26,13 @@
 
     <!-- <div id="empInfo"></div> -->
 
-    <h2>User's Posts</h2><button onclick="listPosts('post-item-container', document.getElementById('uid').value)">Search</button>
+    <h2>User's Posts</h2>
+    <button onclick="listPosts('post-item-container', document.getElementById('uid').value); alert('Search todo list')">Search</button>
     <div id="post-item-container">No Data</div>
 
+    <h2>User's Todo List</h2>
+    <button onclick="listTodos('todos-list', document.getElementById('uid').value)">Search</button>
+    <div id="todos-list">No data</div>
 </body>
 
 </html>

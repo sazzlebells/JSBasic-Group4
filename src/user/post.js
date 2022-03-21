@@ -23,12 +23,6 @@ function listPosts(postContainerElementId, userId) {
       }
       postContainerElement.innerHTML = ``;
       const table = postContainerElement.appendChild(document.createElement('table'));
-      // const row = document.createElement('tr');
-      // row.appendChild((document.createElement('td')).innerHTML = `Post ID`);
-      // row.appendChild((document.createElement('td')).innerHTML = `Title`);
-      // row.appendChild((document.createElement('td')).innerHTML = `Body`);
-
-      // table.appendChild(row);
 
       posts.map((post) => table.appendChild(postElement(post)));
       // createTable(posts);
