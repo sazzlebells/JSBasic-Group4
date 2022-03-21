@@ -20,6 +20,16 @@ eval("var _require = __webpack_require__(/*! ./user/user */ \"./src/user/user.js
 
 /***/ }),
 
+/***/ "./src/user/post.js":
+/*!**************************!*\
+  !*** ./src/user/post.js ***!
+  \**************************/
+/***/ (() => {
+
+eval("function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }\n\nfunction _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"next\", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"throw\", err); } _next(undefined); }); }; }\n\n// hardcoded user id \nfunction fetchPost() {\n  return _fetchPost.apply(this, arguments);\n}\n\nfunction _fetchPost() {\n  _fetchPost = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {\n    var res;\n    return regeneratorRuntime.wrap(function _callee$(_context) {\n      while (1) {\n        switch (_context.prev = _context.next) {\n          case 0:\n            _context.prev = 0;\n            _context.next = 3;\n            return fetch(\"https://jsonplaceholder.typicode.com/users/2/posts\");\n\n          case 3:\n            res = _context.sent;\n\n            if (res.ok) {\n              _context.next = 6;\n              break;\n            }\n\n            throw new Error(\"Failed to fetch posts: \".concat(res.status));\n\n          case 6:\n            _context.next = 8;\n            return res.json();\n\n          case 8:\n            return _context.abrupt(\"return\", _context.sent);\n\n          case 11:\n            _context.prev = 11;\n            _context.t0 = _context[\"catch\"](0);\n            console.log(_context.t0);\n\n          case 14:\n          case \"end\":\n            return _context.stop();\n        }\n      }\n    }, _callee, null, [[0, 11]]);\n  }));\n  return _fetchPost.apply(this, arguments);\n}\n\nfunction listPosts(postContainerElementId) {\n  // map through user's posts and call postElement for each element\n  var postContainerElement = document.getElementById(postContainerElementId);\n  fetchPost().then(function (posts) {\n    if (!posts) {\n      postContainerElement.innerHTML = 'No posts from this user';\n      return;\n    }\n\n    posts.map(function (post) {\n      return postContainerElement.appendChild(postElement(post));\n    });\n  })[\"catch\"](function (e) {\n    console.log(e);\n  });\n}\n\nfunction postElement(post) {\n  // for each post, create html element\n  var liElement = document.createElement('li');\n  liElement.innerHTML = post.title;\n  var postTitleElement = document.createElement('h4');\n  postTitleElement.appendChild(liElement);\n  return postTitleElement;\n}\n\n//# sourceURL=webpack://App/./src/user/post.js?");
+
+/***/ }),
+
 /***/ "./src/user/user.js":
 /*!**************************!*\
   !*** ./src/user/user.js ***!
@@ -61,7 +71,8 @@ eval("function _classCallCheck(instance, Constructor) { if (!(instance instanceo
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/index.js");
+/******/ 	__webpack_require__("./src/index.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/user/post.js");
 /******/ 	App = __webpack_exports__;
 /******/ 	
 /******/ })()
