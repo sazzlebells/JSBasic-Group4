@@ -1,0 +1,19 @@
+{
+  "devDependencies": {
+    "@babel/core": "^7.17.8",
+    "@babel/preset-env": "^7.16.11",
+    "babel-loader": "^8.2.3",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "name": "js-training",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js"
+  },
+  "author": "winnona sarah",
+  "license": "ISC",
+  "description": ""
+}
