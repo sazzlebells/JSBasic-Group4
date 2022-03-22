@@ -1,8 +1,10 @@
 // hardcoded user id 
+
 async function fetchPost(userId) {
   // input userId return posts by userId as json
   try {
     const res = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`);
+
     if (!res.ok) {
       throw new Error(`Failed to fetch posts: ${res.status}`);
     }
@@ -51,6 +53,7 @@ function postElement(post) {
   postTitleElement.appendChild(colElement);
   postTitleElement.appendChild(colElement2);
   postTitleElement.appendChild(colElement3);
+
 
   return postTitleElement;
 }
