@@ -1,19 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coba JS</title>
+    <title>JS Assignment</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="./user/user.js"></script>
+    <script src="./user/post.js"></script>
+    <script src="./user/todos.js"></script>
 </head>
+
 <body>
-    <script src="../dist/main.js"></script>
-    <script>
-        window.onload = function(){
-            App.run('empInfo');
-        }
-    </script>
-    <h1>Test</h1>
-    <div id="empInfo"></div>
+    <h1>JS Assignment</h1><br><br>
+
+    <h2>Find User By ID</h2>
+    <form action="javascript:alert('Find user');"
+        onsubmit="getUserById('details', document.getElementById('uid').value);">
+        <label for="id">Insert User ID:</label>
+        <input type="number" id="uid" max="10">
+        <input type="submit" value="Search User"><br><br>
+    </form>
+
+    <div id="details">No request detected.</div><br><br>
+
+    <!-- <div id="empInfo"></div> -->
+
+    <h2>User's Posts</h2>
+    <button onclick="listPosts('post-item-container', document.getElementById('uid').value); alert('Find Posts')">Search</button>
+    <div id="post-item-container">No Data</div>
+    <div id="my-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-text"></div>
+        </div>
+    </div>
+
+    <h2>User's Todo List</h2>
+    <button onclick="listTodos('todos-list', document.getElementById('uid').value)">Search</button>
+    <div id="todos-list">No data</div>
+    <script src="./user/modal.js"></script>
 </body>
+
 </html>
