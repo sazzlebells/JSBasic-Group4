@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Assignment</title>
+    <link rel="stylesheet" href="./index.css">
     <script src="./user/user.js"></script>
-    <script src="../src/user/post.js"></script>
+    <script src="./user/post.js"></script>
     <script src="./user/todos.js"></script>
 </head>
 
@@ -27,12 +28,19 @@
     <!-- <div id="empInfo"></div> -->
 
     <h2>User's Posts</h2>
-    <button onclick="listPosts('post-item-container', document.getElementById('uid').value); alert('Search todo list')">Search</button>
+    <button onclick="listPosts('post-item-container', document.getElementById('uid').value); alert('Find Posts')">Search</button>
     <div id="post-item-container">No Data</div>
+    <div id="my-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-text"></div>
+        </div>
+    </div>
 
     <h2>User's Todo List</h2>
     <button onclick="listTodos('todos-list', document.getElementById('uid').value)">Search</button>
     <div id="todos-list">No data</div>
+    <script src="./user/modal.js"></script>
 </body>
 
 </html>
